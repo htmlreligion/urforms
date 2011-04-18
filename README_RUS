@@ -13,7 +13,7 @@ radioClassChecked       'customRadioChecked'                            клас
 checkboxClass           'customCheckbox'                                класс кастомного элемента <input type="checkbox" />
 checkboxClassChecked    'customCheckboxChecked'                         класс активного (выбранного) кастомного элемента <input type="checkbox" />
 selectOptionHTML        '<div><ul>{options}</ul></div>'</em>	        HTML выпадающего списка кастомного select'а
-selectOptionItem 	    '<li><a href="#">{optionItem}</a></li>'         HTML опций выпадающего списка кастомного select'а
+selectOptionItem        '<li><a href="#">{optionItem}</a></li>'         HTML опций выпадающего списка кастомного select'а
 selectClass             'customSelect'                                  класс кастомного элемента <select>
 selectDisabledClass     'disabled-select'                               класс кастомного элемента <select> с аттрибутом disabled="disabled"
 optionsClass            'customOptions'                                 класс выпадающего списка опций кастомного элемента <select>
