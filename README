@@ -1,0 +1,25 @@
+Плагин для нестандартных элементов форм.
+
+Параметры
+Название                Значение по умолчанию           Описание
+replaceRadios           false                           заменять <input type="radio" />
+replaceCheckboxes       false                           заменять <input type="checkbox" />
+replaceSelects 	false 	заменять <select>
+implementedClass 	'customizedForm' 	класс формы после кастомизации ее элементов
+customizedClass 	'customizedElement' 	класс элемента формы, после того, как его заменили кастомным
+noCustomClass 	'no-transform' 	класс элемента формы, который не хотим заменять на кастомный
+radioClass 	'customRadio' 	класс кастомного элемента <input type="radio" />
+radioClassChecked 	'customRadioChecked' 	класс активного (выбранного) кастомного элемента <input type="radio" />
+checkboxClass 	'customCheckbox' 	класс кастомного элемента <input type="checkbox" />
+checkboxClassChecked 	'customCheckboxChecked' 	класс активного (выбранного) кастомного элемента <input type="checkbox" />
+selectOptionHTML 	'<div><ul>{options}</ul></div>'</em> 	HTML выпадающего списка кастомного select'а
+selectOptionItem 	'<li><a href="#">{optionItem}</a></li>' 	HTML опций выпадающего списка кастомного select'а
+selectClass 	'customSelect' 	класс кастомного элемента <select>
+selectDisabledClass 	'disabled-select' 	класс кастомного элемента <select> с аттрибутом disabled="disabled"
+optionsClass 	'customOptions' 	класс выпадающего списка опций кастомного элемента <select>
+optionsHiddenClass 	'customOptionsHidden' 	класс выпадающего списка опций кастомного элемента <select> когда он спрятан
+selectActiveClass 	'customSelectActive' 	класс кастомного элемента <select> когда он активен (открыты опции)
+selectHeight 	false 	смещение выпадающего списка от верхней точки <select>'а, по умолчанию false (равно высоте <select>'а)
+selectImplemented 	false 	функция, которая выполняется после кастомизцации всех <select>'ов
+hideOnResize 	true 	прятать выпадающие списки при изменении размера страницы
+hideOnScroll 	false 	прятать выпадающие списки при скроллинге страницы
