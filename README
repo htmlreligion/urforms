@@ -13,7 +13,7 @@ radioClassChecked       'customRadioChecked'                            active (
 checkboxClass           'customCheckbox'                                custom <input type="checkbox" /> className
 checkboxClassChecked    'customCheckboxChecked'                         active ("checked") custom <input type="checkbox" /> className
 selectOptionHTML        '<div><ul>{options}</ul></div>'</em>	        custom select dropdown's HTML
-selectOptionItem 	'<li><a href="#">{optionItem}</a></li>'         custom select dropdowns option elements HTML
+selectOptionItem 	    '<li><a href="#">{optionItem}</a></li>'         custom select dropdowns option elements HTML
 selectClass             'customSelect'                                  custom <select> className
 selectDisabledClass     'disabled-select'                               disabled custom <select> className
 optionsClass            'customOptions'                                 custom <select> dropdown's className (visible)
