@@ -1,25 +1,25 @@
-Плагин для нестандартных элементов форм.
+РџР»Р°РіРёРЅ РґР»СЏ РЅРµСЃС‚Р°РЅРґР°СЂС‚РЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ С„РѕСЂРј.
 
-Параметры
-Название                Значение по умолчанию                           Описание
-replaceRadios           false                                           заменять <input type="radio" />
-replaceCheckboxes       false                                           заменять <input type="checkbox" />
-replaceSelects          false                                           заменять <select>
-implementedClass        'customizedForm'                                класс формы после кастомизации ее элементов
-customizedClass         'customizedElement'                             класс элемента формы, после того, как его заменили кастомным
-noCustomClass           'no-transform'                                  класс элемента формы, который не хотим заменять на кастомный
-radioClass              'customRadio'                                   класс кастомного элемента <input type="radio" />
-radioClassChecked       'customRadioChecked'                            класс активного (выбранного) кастомного элемента <input type="radio" />
-checkboxClass           'customCheckbox'                                класс кастомного элемента <input type="checkbox" />
-checkboxClassChecked    'customCheckboxChecked'                         класс активного (выбранного) кастомного элемента <input type="checkbox" />
-selectOptionHTML        '<div><ul>{options}</ul></div>'</em>	        HTML выпадающего списка кастомного select'а
-selectOptionItem 	'<li><a href="#">{optionItem}</a></li>'         HTML опций выпадающего списка кастомного select'а
-selectClass             'customSelect'                                  класс кастомного элемента <select>
-selectDisabledClass     'disabled-select'                               класс кастомного элемента <select> с аттрибутом disabled="disabled"
-optionsClass            'customOptions'                                 класс выпадающего списка опций кастомного элемента <select>
-optionsHiddenClass      'customOptionsHidden'                           класс выпадающего списка опций кастомного элемента <select> когда он спрятан
-selectActiveClass       'customSelectActive'                            класс кастомного элемента <select> когда он активен (открыты опции)
-selectHeight            false                                           смещение выпадающего списка от верхней точки <select>'а, по умолчанию false (равно высоте <select>'а)
-selectImplemented       false                                           функция, которая выполняется после кастомизцации всех <select>'ов
-hideOnResize            true                                            прятать выпадающие списки при изменении размера страницы
-hideOnScroll            false                                           прятать выпадающие списки при скроллинге страницы
+РџР°СЂР°РјРµС‚СЂС‹
+РќР°Р·РІР°РЅРёРµ                Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ                           РћРїРёСЃР°РЅРёРµ
+replaceRadios           false                                           Р·Р°РјРµРЅСЏС‚СЊ <input type="radio" />
+replaceCheckboxes       false                                           Р·Р°РјРµРЅСЏС‚СЊ <input type="checkbox" />
+replaceSelects          false                                           Р·Р°РјРµРЅСЏС‚СЊ <select>
+implementedClass        'customizedForm'                                РєР»Р°СЃСЃ С„РѕСЂРјС‹ РїРѕСЃР»Рµ РєР°СЃС‚РѕРјРёР·Р°С†РёРё РµРµ СЌР»РµРјРµРЅС‚РѕРІ
+customizedClass         'customizedElement'                             РєР»Р°СЃСЃ СЌР»РµРјРµРЅС‚Р° С„РѕСЂРјС‹, РїРѕСЃР»Рµ С‚РѕРіРѕ, РєР°Рє РµРіРѕ Р·Р°РјРµРЅРёР»Рё РєР°СЃС‚РѕРјРЅС‹Рј
+noCustomClass           'no-transform'                                  РєР»Р°СЃСЃ СЌР»РµРјРµРЅС‚Р° С„РѕСЂРјС‹, РєРѕС‚РѕСЂС‹Р№ РЅРµ С…РѕС‚РёРј Р·Р°РјРµРЅСЏС‚СЊ РЅР° РєР°СЃС‚РѕРјРЅС‹Р№
+radioClass              'customRadio'                                   РєР»Р°СЃСЃ РєР°СЃС‚РѕРјРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° <input type="radio" />
+radioClassChecked       'customRadioChecked'                            РєР»Р°СЃСЃ Р°РєС‚РёРІРЅРѕРіРѕ (РІС‹Р±СЂР°РЅРЅРѕРіРѕ) РєР°СЃС‚РѕРјРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° <input type="radio" />
+checkboxClass           'customCheckbox'                                РєР»Р°СЃСЃ РєР°СЃС‚РѕРјРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° <input type="checkbox" />
+checkboxClassChecked    'customCheckboxChecked'                         РєР»Р°СЃСЃ Р°РєС‚РёРІРЅРѕРіРѕ (РІС‹Р±СЂР°РЅРЅРѕРіРѕ) РєР°СЃС‚РѕРјРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° <input type="checkbox" />
+selectOptionHTML        '<div><ul>{options}</ul></div>'</em>	        HTML РІС‹РїР°РґР°СЋС‰РµРіРѕ СЃРїРёСЃРєР° РєР°СЃС‚РѕРјРЅРѕРіРѕ select'Р°
+selectOptionItem 	    '<li><a href="#">{optionItem}</a></li>'         HTML РѕРїС†РёР№ РІС‹РїР°РґР°СЋС‰РµРіРѕ СЃРїРёСЃРєР° РєР°СЃС‚РѕРјРЅРѕРіРѕ select'Р°
+selectClass             'customSelect'                                  РєР»Р°СЃСЃ РєР°СЃС‚РѕРјРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° <select>
+selectDisabledClass     'disabled-select'                               РєР»Р°СЃСЃ РєР°СЃС‚РѕРјРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° <select> СЃ Р°С‚С‚СЂРёР±СѓС‚РѕРј disabled="disabled"
+optionsClass            'customOptions'                                 РєР»Р°СЃСЃ РІС‹РїР°РґР°СЋС‰РµРіРѕ СЃРїРёСЃРєР° РѕРїС†РёР№ РєР°СЃС‚РѕРјРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° <select>
+optionsHiddenClass      'customOptionsHidden'                           РєР»Р°СЃСЃ РІС‹РїР°РґР°СЋС‰РµРіРѕ СЃРїРёСЃРєР° РѕРїС†РёР№ РєР°СЃС‚РѕРјРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° <select> РєРѕРіРґР° РѕРЅ СЃРїСЂСЏС‚Р°РЅ
+selectActiveClass       'customSelectActive'                            РєР»Р°СЃСЃ РєР°СЃС‚РѕРјРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° <select> РєРѕРіРґР° РѕРЅ Р°РєС‚РёРІРµРЅ (РѕС‚РєСЂС‹С‚С‹ РѕРїС†РёРё)
+selectHeight            false                                           СЃРјРµС‰РµРЅРёРµ РІС‹РїР°РґР°СЋС‰РµРіРѕ СЃРїРёСЃРєР° РѕС‚ РІРµСЂС…РЅРµР№ С‚РѕС‡РєРё <select>'Р°, РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ false (СЂР°РІРЅРѕ РІС‹СЃРѕС‚Рµ <select>'Р°)
+selectImplemented       false                                           С„СѓРЅРєС†РёСЏ, РєРѕС‚РѕСЂР°СЏ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїРѕСЃР»Рµ РєР°СЃС‚РѕРјРёР·С†Р°С†РёРё РІСЃРµС… <select>'РѕРІ
+hideOnResize            true                                            РїСЂСЏС‚Р°С‚СЊ РІС‹РїР°РґР°СЋС‰РёРµ СЃРїРёСЃРєРё РїСЂРё РёР·РјРµРЅРµРЅРёРё СЂР°Р·РјРµСЂР° СЃС‚СЂР°РЅРёС†С‹
+hideOnScroll            false                                           РїСЂСЏС‚Р°С‚СЊ РІС‹РїР°РґР°СЋС‰РёРµ СЃРїРёСЃРєРё РїСЂРё СЃРєСЂРѕР»Р»РёРЅРіРµ СЃС‚СЂР°РЅРёС†С‹
