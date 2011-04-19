@@ -1,5 +1,8 @@
 Plugin for custom form elements
 
+Compatible
+Windows, Mac, Ubuntu; IE6+, FF2+, Opera8+, Safari/Chrome (latest stable)
+
 Parameters
 Name                    Default value                                   Description
 replaceRadios           false                                           replace <input type="radio" />

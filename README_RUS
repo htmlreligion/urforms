@@ -1,5 +1,8 @@
 Плагин для нестандартных элементов форм.
 
+Совместимы
+Windows, Mac, Ubuntu; IE6+, FF2+, Opera8+, Safari/Chrome (последняя стабильная версия)
+
 Параметры
 Название                Значение по умолчанию                           Описание
 replaceRadios           false                                           заменять <input type="radio" />
