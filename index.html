@@ -1,0 +1,71 @@
+<!DOCTYPE HTML><html lang="en-US"><head>	<meta charset="UTF-8">	<script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>	<style type="text/css">		body {margin:0;padding:0;color:#000;font:11px/13px Verdana,Arial,sans-serif;}		a {color:#000;text-decoration:underline;}		a:hover {text-decoration:none;}		img {margin:0;border:none;}		form {margin:0;padding:0;border:none;}		fieldset {margin:20px 0 0;}		input, textarea, select {color:#000;font:11px/13px Verdana,Arial,sans-serif;vertical-align:middle;}		.page-width {width:1000px;margin:0 auto;}		h1 {font-size:20px;line-height:22px;margin:20px 0 0;}		h2 {font-size:16px;line-height:18px;margin:20px 0 0;}		.row {padding:10px 0;width:100%;overflow:hidden;}		label {float:left;padding:0 16px 0 0;}		.customRadio, 		.customRadioChecked {margin:0 6px 0 0 !important;}		.customCheckbox, 		.customCheckboxChecked {margin:0 6px 0 0 !important;}	</style>
+	<!-- forms START -->
+	<link rel="stylesheet" type="text/css" href="css/forms.css" media="all" />	<script type="text/javascript" src="js/jquery.urForms.2.0.4.js"></script>	<script type="text/javascript">		$(window).load(function () {			$('div.custom-form').urForm({				replaceRadios : true,				replaceCheckboxes : true,				replaceSelects : true,				selectHeight: 20,				noCustomClass : 'dont-customize'			});		});	</script>
+	<!-- forms END -->	<title>Custom Forms :: jQuery urForm plugin - htmlReligion Team development center</title></head><body>	<div class="page-width">
+		<h1>jQuery plugin for custom form elements</h1>
+		<h2>Examples</h2>
+		<form action="#">
+			<fieldset>
+				<legend>Radios</legend>
+				<div class="custom-form">
+					<div class="row">
+						<input type="radio" name="radio" id="radio1" />
+						<label for="radio1">Radio 1</label>
+					</div>
+					<div class="row">
+						<input type="radio" name="radio" id="radio2" />
+						<label for="radio2">Radio 2</label>
+						<label for="radio2">two</label>
+					</div>
+					<div class="row">
+						<input type="radio" name="radio" id="radio3" />
+						<label for="radio3">Radio 3</label>
+					</div>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Checkboxes</legend>
+				<div class="custom-form">
+					<div class="row">
+						<input type="checkbox" id="checkbox1" />
+						<label for="checkbox1">Checkbox 1</label>
+					</div>
+					<div class="row">
+						<input type="checkbox" id="checkbox2" />
+						<label for="checkbox2">Checkbox 2</label>
+					</div>
+					<div class="row">
+						<input type="checkbox" checked="checked" id="checkbox3" />
+						<label for="checkbox3">Checkbox 3 checked</label>
+					</div>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Selects</legend>
+				<div class="custom-form">
+					<div class="row">
+						<select name="values1">
+							<option value="1">Value 1</option>
+							<option value="2">Value 2</option>
+							<option value="3">Value 3</option>
+						</select>
+					</div>					<div class="row">						<select name="values2" style="width:300px;">							<option value="4">Value 4</option>							<option selected="selected" value="5">Value 5 by default</option>							<option value="6">Value 6</option>						</select>					</div>
+					<div class="row">
+						<select class="dont-customize" name="values3" style="width:300px;">
+							<option selected="selected" value="4">Default style</option>
+							<option value="5">Value 5</option>
+							<option value="6">Value 6</option>
+						</select>
+					</div>
+					<div class="row">
+						<select name="values12" disabled="disabled" style="width:300px;">
+							<option value="4">Disabled</option>
+						</select>
+					</div>
+				</div>
+			</fieldset>
+			<div class="row">				<input type="submit" value="Go!" />			</div>
+		</form>
+	</div><!-- /.page-width -->
+</body>
+</html>
