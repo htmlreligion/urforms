@@ -2,7 +2,7 @@
  * jQuery urForms Plugin
  * Copyright: htmlReligion Team
  * URL: http://research.htmlreligion.com/custom-forms/
- * Version: 2.0.4 (2011-may-05)
+ * Version: 2.0.5 (2011-dec-21)
  * Requires: jQuery v1.3+
  * License: MIT (http://www.opensource.org/licenses/mit-license.php)
 */
@@ -379,16 +379,6 @@
 					$(this)
 						.attr('rel', j)
 						.attr('class', updateSelectId);
-					// click select dropdown option item
-					$(this).click(function () {
-						var _j = $(this).attr('rel');
-						var _i = $(this).attr('class');
-						if (_j && _i) {
-							showOptions(_i);
-							customSelectEvent(_j, _i);
-						}
-						return false;
-					});
 				});
 			}
 			var customSelectBox = selectObject.data('dCustomSelect');
@@ -473,20 +463,24 @@
 							width : replacedSelect.width()
 						})
 						.attr('customOptionsId', 'customOptions' + i);
-					$('a', replacedOptions).each(function (j) {
-						$(this)
-							.attr('rel', j)
-							.attr('class', i);
-						// click select dropdown option item
-						$(this).click(function () {
-							var _j = $(this).attr('rel');
-							var _i = $(this).attr('class');
+					replacedOptions.click(function(e) {
+						var _optionsTarget = $(e.target);
+						if(_optionsTarget.is('a')) {
+							var _j = _optionsTarget.attr('rel');
+							var _i = _optionsTarget.attr('class');
 							if (_j && _i) {
 								showOptions(_i);
 								customSelectEvent(_j, _i);
 							}
 							return false;
-						});
+						} else {
+							return true;
+						}
+					});
+					$('a', replacedOptions).each(function (j) {
+						$(this)
+							.attr('rel', j)
+							.attr('class', i);
 					});
 					obj.elements.selects[i].customSelect = replacedSelect;
 					obj.elements.selects[i].optionz = replacedOptions;
