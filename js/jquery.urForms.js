@@ -2,11 +2,19 @@
  * jQuery urForms Plugin
  * Copyright: htmlReligion Team
  * URL: http://research.htmlreligion.com/custom-forms/
- * Version: 2.0.5 (2011-dec-21)
- * Requires: jQuery v1.3+
+ * Version: 3.0 beta4(2013-feb-07)
+ * Requires: jQuery v1.7+ (for jQuery 1.3-1.5 support use urForms v2.0.5)
  * License: MIT (http://www.opensource.org/licenses/mit-license.php)
 */
-(function($) {
+/*
+ * Changes:
+ * 2.0.5        (2011-12-21)    fixed issue for select option's dynamical preload
+ * 3.0 beta1    (2012-01-03)    fixed custom checkboxes events for jQuery > 1.5
+ * 3.0 beta2    (2012-07-13)    fixed custom checkboxes check by default
+ * 3.0 beta3    (2013-01-21)    added custom inputs onchange trigger
+ * 3.0 beta3    (2013-02-07)    custom checkboxes/radios disabled state
+*/
+;(function($) {
 	var UrForm = function(element, options) {
 		var elem = $(element);
 		var obj = this;
@@ -133,11 +141,14 @@
 				if (!obj.elements.checkboxes[i].hasClass(settings.customizedClass)) {
 					obj.elements.checkboxes[i].addClass(settings.customizedClass);
 					var replacedInputCheckbox = $('<div></div>');
-					if (obj.elements.checkboxes[i].attr('checked') == true) {
+					if(typeof obj.elements.checkboxes[i].attr('checked') !== 'undefined') {
 						replacedInputCheckbox.addClass(settings.checkboxClassChecked);
 					} else {
 						replacedInputCheckbox.addClass(settings.checkboxClass);
 					}
+					if(obj.elements.checkboxes[i].is(':disabled')) {
+						replacedInputCheckbox.addClass('disabled');
+					}	
 					replacedInputCheckbox.attr('customCheckboxId', 'customCheckbox' + i);
 					obj.elements.checkboxes[i].parent().prepend(replacedInputCheckbox);
 					obj.elements.checkboxes[i].custom = replacedInputCheckbox;
@@ -162,25 +173,29 @@
 		// private
 		// retoggle checkboxes
 		function retoggleCheckbox (_clickIndex) {
-			var _state = false;
-			if(obj.elements.checkboxes[_clickIndex].attr('checked') == true) {
-				_state = false;
-			} else {
-				_state = true;
+			if(!obj.elements.checkboxes[_clickIndex].is(':disabled')) {
+				if (obj.elements.checkboxes[_clickIndex].is(':checked')) {
+					obj.elements.checkboxes[_clickIndex].attr('checked', false);
+					checkCheckbox(_clickIndex, false);
+				} else {
+					obj.elements.checkboxes[_clickIndex].attr('checked', true);
+					checkCheckbox(_clickIndex, true);
+				}
+				obj.elements.checkboxes[_clickIndex].trigger('change');
 			}
-			obj.elements.checkboxes[_clickIndex].attr('checked', _state);
-			checkCheckbox(_clickIndex, _state);
 		};
 		
 		// private
 		// toggle checkboxes
 		function toggleCheckbox (clickI) {
 			if (obj.elements.checkboxes[clickI]) {
-				if (obj.elements.checkboxes[clickI].attr('checked') == true) {
-					checkCheckbox(clickI, false);
-				} else {
-					checkCheckbox(clickI, true);
-				}		
+				if(!obj.elements.checkboxes[clickI].is(':disabled')) {
+					if (obj.elements.checkboxes[clickI].is(':checked')) {
+						checkCheckbox(clickI, false);
+					} else {
+						checkCheckbox(clickI, true);
+					}
+				}
 			}
 		};
 		
@@ -202,31 +217,36 @@
 		// private
 		// toggle radio buttons
 		function changeRadios (changeIndex) {
-			for(var r = 0, rlen = obj.elements.radios.length; r < rlen; r++) {
-				if(obj.elements.radios[r].attr('name') == obj.elements.radios[changeIndex].attr('name')) {
-					obj.elements.radios[r]
-						.attr('checked', false)
-						.removeClass('checked');
+			if(!obj.elements.radios[changeIndex].is(':disabled')) {
+				for(var r = 0, rlen = obj.elements.radios.length; r < rlen; r++) {
+					if(obj.elements.radios[r].attr('name') == obj.elements.radios[changeIndex].attr('name')) {
+						obj.elements.radios[r]
+							.attr('checked', false)
+							.removeClass('checked');
+					}
 				}
+				obj.elements.radios[changeIndex]
+					.attr('checked', true)
+					.addClass('checked')
+					.trigger('change');
+				checkRadios(changeIndex);
 			}
-			obj.elements.radios[changeIndex]
-				.attr('checked', true)
-				.addClass('checked');
-			checkRadios(changeIndex);
 		};
 		
 		// private
 		// check radio buttons
 		function checkRadios (checkIndex) {
 			var customAppr = obj.elements.radios[checkIndex];
-			for(var _r = 0, _rlen = obj.elements.radios.length; _r < _rlen; _r++) {
-				if(obj.elements.radios[_r].custom || obj.elements.radios[_r].custom != 'undefined') {
-					if((obj.elements.radios[_r].custom.hasClass(settings.radioClassChecked)) && obj.elements.radios[_r].attr('name') == customAppr.attr('name')) {
-						obj.elements.radios[_r].custom.attr('class', settings.radioClass);
+			if(!customAppr.is(':disabled')) {
+				for(var _r = 0, _rlen = obj.elements.radios.length; _r < _rlen; _r++) {
+					if(obj.elements.radios[_r].custom || obj.elements.radios[_r].custom != 'undefined') {
+						if((obj.elements.radios[_r].custom.hasClass(settings.radioClassChecked)) && obj.elements.radios[_r].attr('name') == customAppr.attr('name')) {
+							obj.elements.radios[_r].custom.attr('class', settings.radioClass);
+						}
 					}
 				}
+				customAppr.custom.attr('class', settings.radioClassChecked);
 			}
-			customAppr.custom.attr('class', settings.radioClassChecked);
 		};
 		
 		// public
@@ -236,10 +256,13 @@
 				if(!obj.elements.radios[i].hasClass(settings.customizedClass)) {
 					obj.elements.radios[i].addClass(settings.customizedClass);
 					var replacedInputRadio = $('<div></div>');
-					if(obj.elements.radios[i].attr('checked') == true) {
+                    if(typeof obj.elements.radios[i].attr('checked') !== 'undefined') {
 						replacedInputRadio.addClass(settings.radioClassChecked);
 					} else {
 						replacedInputRadio.addClass(settings.radioClass);
+					}
+					if(obj.elements.radios[i].is(':disabled')) {
+						replacedInputRadio.addClass('disabled');
 					}
 					replacedInputRadio.attr('customRadioId', 'customRadio' + i);
 					obj.elements.radios[i].parent().prepend(replacedInputRadio);
@@ -248,7 +271,7 @@
 					// click custom radio input
 					replacedInputRadio.click(function () {
 						var _clickIndex = $(this).attr('customRadioId').replace('customRadio', '');
-						changeRadios(_clickIndex, obj.elements, settings.radioClass, settings.radioClassChecked);
+						changeRadios(_clickIndex);
 					});
 				}
 			}
@@ -257,7 +280,7 @@
 				if (_forAttr && $('#' + _forAttr).length) {
 					if (obj.elements.radioLabels[i].attr('targetId')) {
 						obj.elements.radioLabels[i].click(function () {
-							checkRadios($(this).attr('targetId'), obj.elements, settings.radioClass, settings.radioClassChecked);
+							checkRadios($(this).attr('targetId'));
 						});
 					}
 				}
